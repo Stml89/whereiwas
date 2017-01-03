@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block title %}{% endblock title %}
+
+{% block base %}
+			{% block head %}{% endblock head %}
+			{% block content %}{% endblock content %}
+			{% if not main %}
+				{% block footer %}{% endblock footer %}
+			{% endif %}
+{% endblock base %}
