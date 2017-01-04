@@ -1,6 +1,6 @@
-import os
-from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.http import HttpResponse, Http404
+from django.shortcuts import render_to_response, redirect
+from django.core.exceptions import ObjectDoesNotExist
 
 
 def startpage(request):
@@ -8,7 +8,8 @@ def startpage(request):
 
 
 def open_page(request, html):
-    if not os.path.exists(os.path.join(os.getcwd(), 'whereiwas', 'templates', 'pages', html)):
-        return HttpResponse('404')
-    else:
+    try:
         return render_to_response('pages/{}'.format(html))
+    except ObjectDoesNotExist:
+        raise Http404
+    return redirect('pages/{}'.format(html))
