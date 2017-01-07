@@ -20,5 +20,5 @@ urlpatterns = [
     url(r'^$', views.startpage),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^(.*.html)', views.open_page),
-    url(r'^users', include('users.urls')),
+    url(r'^countries/', include('countries.urls')),
 ]

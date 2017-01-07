@@ -23,10 +23,10 @@ class Articles(models.Model):
         return self.article_title
 
     article_title = models.CharField(max_length=50)
-    article_text = models.CharField(max_length=200)
+    article_text = models.CharField(max_length=4000)
     article_date = models.DateTimeField(auto_now_add=True)
     article_likes = models.IntegerField(default=0)
-    article_pict = models.CharField(max_length=200)
+    article_pict = models.ImageField(max_length=200)
     article_comments = models.ForeignKey(Comments)
 
 
