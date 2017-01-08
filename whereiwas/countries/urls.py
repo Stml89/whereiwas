@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.test),
-    url(r'^$', views.add_like),
+    url(r'^article/(\d+)$', views.view_article),
+    url(r'^article/addlike/(\d+)$', views.add_like),
 ]
