@@ -13,8 +13,12 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+try:
+    PROD = os.path.exists(' /var/www/whereiwas_pythonanywhere_com_wsgi.py')
+except OSError:
+    PROD = False
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -58,7 +62,6 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'whereiwas', 'templates'),
-            # os.path.join(BASE_DIR, 'whereiwas', 'templates', 'assets'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -82,12 +85,24 @@ WSGI_APPLICATION = 'whereiwas.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if PROD:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'whereiwas$default',
+            'USER': 'whereiwas',
+            'PASSWORD': 'transatel@123',
+            'HOST': 'whereiwas.mysql.pythonanywhere-services.com',
+            'PORT': '',
+            }
+        }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
 
 
 # Internationalization
