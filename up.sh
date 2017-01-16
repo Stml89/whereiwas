@@ -2,7 +2,7 @@
 set -x
 set -e
 
-cd whereiwas
+cd /home/whereiwas
 git pull --rebase
 pip install -r requirements.txt
 cd whereiwas
