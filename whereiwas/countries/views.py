@@ -8,7 +8,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 
 def test(request):
-    return render_to_response('users/index.html')
+    return render_to_response('pages/belarus.html')
 
 
 def add_like(request, article_id):

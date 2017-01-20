@@ -17,8 +17,9 @@ from django.contrib import admin
 from whereiwas import views
 
 urlpatterns = [
-    url(r'^$', views.startpage),
+    url(r'^$', views.start_page),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^(.*.html)', views.open_page),
+    # url(r'^(.*.html)', views.open_page),
     url(r'^countries/', include('countries.urls')),
+    url(r'^about$', views.about_page),
 ]

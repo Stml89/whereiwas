@@ -38,5 +38,5 @@ class Users(models.Model):
     user_mail = models.EmailField(max_length=20)
     user_login = models.CharField(max_length=10)
     user_password = models.CharField(max_length=20)
-    user_countries = models.ForeignKey(Countries)
-    user_articles = models.ManyToManyField(Articles)
+    user_articles = models.ForeignKey(Articles, null=True)
+    user_countries = models.ManyToManyField(Countries)

@@ -62,6 +62,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'whereiwas', 'templates'),
+            os.path.join(BASE_DIR, 'countries', 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -77,6 +78,7 @@ TEMPLATES = [
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'whereiwas', 'templates'),
+    os.path.join(BASE_DIR, 'countries', 'static'),
 ]
 
 WSGI_APPLICATION = 'whereiwas.wsgi.application'

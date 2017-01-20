@@ -1,8 +1,9 @@
-{% extends 'common/common.html' %}
+{% extends 'common1/common_single.html' %}
 
 {% block title %}Trip to Belarus from Drew{% endblock title %}
 
 {% block content %}
+{% load static %}
                 <!-- Main -->
 					<div id="main">
 
@@ -15,10 +16,10 @@
 									</div>
 									<div class="meta">
 										<time class="published" datetime="2015-11-01">October 4, 2015</time>
-										<a href="#" class="author"><span class="name">Drew</span><img src="static/images/avatar.jpg" alt="" /></a>
+										<a href="#" class="author"><span class="name">Drew</span><img src="{% static 'images/avatar.jpg' %}" alt="" /></a>
 									</div>
 								</header>
-								<span class="image featured"><img src="static/images/23_nochnoy_minsk_sergey_melnik.jpg" alt="" /></span>
+								<span class="image featured"><img src="{% static 'images/23_nochnoy_minsk_sergey_melnik.jpg' %}" alt="" /></span>
 								<p>There are very few detailed “Minsk Guides” or blog posts online, so I’ll do my best to give you a complete overview of the city and provide recommendations for culture, attractions, food, things to do, nightlife and more. Everything you read is based off my own personal experiences.</p>
 								<p>GENERAL THOUGHTS<p>
 								<p>Before I begin this post, I’d like to share with you about how much of a hassle it was to get a Visa to Belarus…</p>
@@ -26,7 +27,7 @@
 								If you are planning to apply for a visa to Belarus in a neighboring country, then DO NOT do it at the Embassy in Lithuania and do it at the one in Latvia because it’s much easier. The people in the Vilnius embassy were extremely rude and offensive to me, mostly because I have a USA passport (Americans are not easily welcomed into Belarus). If you need extra help or advice on getting a Belarus Visa, then please contact me.
 								So, I finally got the visa, and I embarked on a 3 hour train journey from Vilnius, Lithuania to Minsk, Belarus.
 								</p>
-								<img src="static/images/drew.png">
+								<img src="{% static 'images/drew.png' %}">
 								<p>I’m currently writing this blog post from a coffee shop in Minsk, on my final day in the country. What a random and interesting journey it has been in my 72nd country.  I’m excited to share my experiences with you.
 								First thing to know about Belarus is that it is the least touristy country in Europe (by a long shot).  Very few people in my network of friends & travelers has ever been there before (I even asked on my Instagram).   Throughout my 4 days in Minsk, I came across 2 tourists/English speakers and I’m glad I know basic Russian because otherwise it would’ve been difficult to get around.
 								Speaking of Russia, the country of Belarus has kept very close ties with Russia since the collapse of the Soviet Union, and to this day, Russia still basically rules Belarus. I have never been to Russia before, but I’ve been told that it’s virtually the same culture as Belarus.

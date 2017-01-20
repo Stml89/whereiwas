@@ -7,15 +7,16 @@
 					<div id="main">
 
 						<!-- Post -->
+							{% for name in users %}
 							<article class="post">
 								<header>
 									<div class="title">
-										<h2><a href="belarus.html">Belarus as is</a></h2>
+										<h2><a href="belarus.html">{{ users.user_articles }}</a></h2>
 										<p>I spent 4 days in Minsk in October, 2015 and had a fun time.</p>
 									</div>
 									<div class="meta">
 										<time class="published" datetime="2015-11-01">October 4, 2015</time>
-										<a class="author"><span class="name">Drew</span><img src="static/images/avatar.jpg" alt="" /></a>
+										<a class="author"><span class="name">{{ name }}</span><img src="static/images/avatar.jpg" alt="" /></a>
 									</div>
 								</header>
 								<a class="image featured"><img src="static/images/23_nochnoy_minsk_sergey_melnik.jpg" alt="" /></a>
@@ -27,26 +28,7 @@
 									</ul>
 								</footer>
 							</article>
-
-							<article class="post">
-								<header>
-									<div class="title">
-										<h2><a href="spain_mark.html">Holidays in Spain</a></h2>
-									</div>
-									<div class="meta">
-										<time class="published" datetime="2015-11-01">October 4, 2015</time>
-										<a class="author"><span class="name">Drew</span><img src="static/images/avatar.jpg" alt="" /></a>
-									</div>
-								</header>
-								<a class="image featured"><img src="static/images/spain.jpg" alt="" /></a>
-								<p>Whatever you’re looking for in a holiday, Spain is sure to have it. With fantastic beaches, vibrant nightlife, fascinating culture and world class cuisine it’s no wonder Spain is such a popular destination all year round.
-								</p>
-								<footer>
-									<ul class="actions">
-										<li><a href="spain_mark.html" class="button big">Continue Reading</a></li>
-									</ul>
-								</footer>
-							</article>
+							{% endfor %}
 
 						<!-- Pagination -->
 							<ul class="actions pagination">
@@ -82,35 +64,6 @@
 											<a href="#" class="image"><img src="static/images/phuket_2475017a-large.jpg" alt="" /></a>
 										</article>
 
-									<!-- Mini Post -->
-										<article class="mini-post">
-											<header>
-												<h3><a href="#">Hong kong</a></h3>
-												<time class="published" datetime="2015-10-19">October 19, 2015</time>
-												<a href="#" class="author"><img src="static/images/avatar.jpg" alt="" /></a>
-											</header>
-											<a href="#" class="image"><img src="static/images/GP_HongKong.jpg" alt="" /></a>
-										</article>
-
-									<!-- Mini Post -->
-										<article class="mini-post">
-											<header>
-												<h3><a href="#">Hong kong</a></h3>
-												<time class="published" datetime="2015-10-19">October 19, 2015</time>
-												<a href="#" class="author"><img src="static/images/avatar.jpg" alt="" /></a>
-											</header>
-											<a href="#" class="image"><img src="static/images/GP_HongKong.jpg" alt="" /></a>
-										</article>
-
-									<!-- Mini Post -->
-										<article class="mini-post">
-											<header>
-												<h3><a href="#">Hong kong</a></h3>
-												<time class="published" datetime="2015-10-19">October 19, 2015</time>
-												<a href="#" class="author"><img src="static/images/avatar.jpg" alt="" /></a>
-											</header>
-											<a href="#" class="image"><img src="static/images/GP_HongKong.jpg" alt="" /></a>
-										</article>
 								</div>
 							</section>
 <!-- Posts List -->
@@ -123,15 +76,6 @@
 												<time class="published" datetime="2015-10-08">October 8, 2015</time>
 											</header>
 											<a href="#" class="image"><img src="images/pic11.jpg" alt="" /></a>
-										</article>
-									</li>
-									<li>
-										<article>
-											<header>
-												<h3><a href="#">Congue ullam corper lorem ipsum dolor</a></h3>
-												<time class="published" datetime="2015-10-06">October 7, 2015</time>
-											</header>
-											<a href="#" class="image"><img src="images/pic12.jpg" alt="" /></a>
 										</article>
 									</li>
 								</ul>

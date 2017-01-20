@@ -24,11 +24,14 @@ article_2 = Articles.objects.create(article_title='Title2', article_text='articl
 
 
 user_1 = Users.objects.create(user_name='sergei', user_mail='sergei@mail.ru', user_login='user_1',
-                              user_password='qwerty123', user_countries=countries_1)
-user_1.user_articles = [article_1]
+                              user_password='qwerty123', user_articles=article_1)
+user_1.user_countries = [countries_1]
+user_1.save()
 user_2 = Users.objects.create(user_name='misha', user_mail='misha@mail.ru', user_login='user_2',
-                              user_password='qwerty321', user_countries=countries_2)
-user_2.user_articles = [article_1]
+                              user_password='qwerty321', user_articles=article_2)
+user_2.user_countries = [countries_1, countries_2]
+user_2.save()
 user_3 = Users.objects.create(user_name='vitya', user_mail='vitya@mail.ru', user_login='user_3',
-                              user_password='ne_pridumal', user_countries=countries_3)
-user_3.user_articles = [article_2]
+                              user_password='ne_pridumal', user_articles=article_2)
+user_3.user_countries = [countries_2, countries_3]
+user_3.save()
