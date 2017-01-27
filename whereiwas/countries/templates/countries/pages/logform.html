@@ -1,0 +1,47 @@
+{% extends 'common/common.html' %}
+
+{% block title %}{{ form_name }}{% endblock title %}
+
+{% block content %}
+            <!-- Main -->
+					<div id="main">
+						<!-- Post -->
+                        <article class="post">
+                            <header>
+                                <div class="title">
+                                    <h2>{{ form_name }}</h2>
+                                    {% if login %}
+                                    <!--<form action="{% url "login-page" %}" method="post">-->
+                                    <form action="login_user?next={{request.path}}" method="post">
+                                        {% csrf_token %}
+                                        <div><input type="text" placeholder="Username" name="username"></div>
+                                        <div><input type="password" placeholder="Password" name="password"></div>
+                                        <button type="submit" class="button big fit">Log In</button>
+                                    </form>
+                                    {% else %}
+                                        <p>12321321432</p>
+                                    {% endif %}
+
+                                    {% if messages %}
+                                        {% for message in messages %}
+                                        <div role="alert">
+                                             <p color="red">Ooops! {{ message }}. Try again!</p>
+                                         </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </header>
+                        </article>
+					</div>
+			<!-- Footer -->
+					<section id="footer">
+						<ul class="icons">
+							<li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>
+							<li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+					</section>
+{% endblock content %}

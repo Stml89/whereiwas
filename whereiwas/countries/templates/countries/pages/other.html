@@ -1,0 +1,64 @@
+{% extends 'common/common.html' %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+            <!-- Main -->
+					<div id="main">
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										{% if about %}
+											<h2><a href="{% url "about-page" %}">About</a></h2>
+											<p>Main idea of this website is share your trip experience</p>
+										{% elif user %}
+											<h1>User {{ user.user_name }}:</h1>
+											<div><img src="{{ user.avatar.url }}"></div><br>
+											<p>Wrote articles:
+												<ul>
+													<li>
+														Article: <a href="/countries/article/{{ user.user_articles.article_title }}">{{ user.user_articles.article_title }}</a>,
+														Date: {{ user.user_articles.article_date }},
+														Likes: {{ user.user_articles.article_likes }}
+													</li>
+												</ul>
+											</p>
+											<p>Visited countries:
+												<ul>
+													{% for c in countries %}
+														Country/s: <li>{{ c.countries_name }}, Year: {{ c.year }}</li>
+
+													{% endfor %}
+												</ul>
+											</p>
+										{% else %}
+											{% if not articles %}
+												<p>No articles found, try again please!</p>
+											{% else %}
+												{% for a in articles %}
+													<h2><a href="countries/article/{{a.article_title}}">{{ a.article_title }}</a></h2>
+													<p>Small description:</p>
+													<p>{{ a.article_text|slice:":200" }}</p>
+												{% endfor %}
+											{% endif %}
+										{% endif %}
+									</div>
+								</header>
+								{% if about %}
+									<p>We are helping people to find right way</p>
+								{% endif %}
+							</article>
+					</div>
+			<!-- Footer -->
+					<section id="footer">
+						<ul class="icons">
+							<li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>
+							<li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+					</section>
+{% endblock content %}

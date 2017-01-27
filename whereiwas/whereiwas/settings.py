@@ -24,12 +24,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'qfm@xe1q1=d&igr+uwiu=b#wd*$^1-55e#%abaj$zq8^h%3+_0'
+if PROD:
+    with open("key.txt") as f:
+        secret = f.read()
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['*']
+    SECRET_KEY = secret
+    DEBUG = False
+    ALLOWED_HOSTS = ['whereiwas.pythonanywhere.com']
+else:
+    SECRET_KEY = 'qfm@xe1q1=d&igr+uwiu=b#wd*$^1-55e#%abaj$zq8^h%3+_0'
+    DEBUG = True
+    ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -62,7 +67,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'whereiwas', 'templates'),
-            os.path.join(BASE_DIR, 'countries', 'templates'),
+            os.path.join(BASE_DIR, 'countries', 'templates', 'countries')
         ],
         'APP_DIRS': True,
         'OPTIONS': {

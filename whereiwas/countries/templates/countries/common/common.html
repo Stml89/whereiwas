@@ -1,0 +1,36 @@
+{% extends 'common/base.html' %}
+
+{% block title %}{% endblock title %}
+
+{% block head %}
+			<!-- Header -->
+					<header id="header">
+						<h1>Where I was</h1>
+						<nav class="links">
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li><a href="{% url "about-page" %}">About</a></li>
+								{% if not request.user.is_authenticated %}
+									<li><a href="{% url "login-page" %}">Login</a></li>
+								{% else %}
+									<li><a href="{% url "logout-page" %}">Hello {{ request.user.username }}, logout</a></li>
+									{% if not new_article%}
+										<li><a href="{% url "add-article" %}">Add your story</a></li>
+									{% endif %}
+								{% endif %}
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="/search">
+										<input type="text" name="query" placeholder="Search articles"/>
+									</form>
+								</li>
+							</ul>
+						</nav>
+					</header>
+{% endblock head %}
+
+{% block content %}{% endblock content %}

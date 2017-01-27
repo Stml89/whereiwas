@@ -1,0 +1,88 @@
+{% extends 'common/common.html' %}
+
+{% block title %}Where I was{% endblock title %}
+{% load static %}
+{% block content %}
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							{% for i in users %}
+							{% for name in i %}
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="countries/article/{{ name.user_articles }}">{{ name.user_articles }}</a></h2>
+										<p>{{ name.user_articles.article_text|slice:":100" }}</p>
+									</div>
+									<div class="meta">
+										<time class="published">{{ name.user_articles.article_date }}</time>
+										<a href="{% url "user-profile-page" %}?user_id={{ name.id }}" class="author"><span class="name">{{ name }}</span><img src="{{ name.avatar.url }}"/></a>
+									</div>
+								</header>
+								<a class="image featured"><img src="{{ name.user_articles.article_pict.url }}"/></a>
+								<p></p>
+								<footer>
+									<ul class="actions">
+										<li><a href="countries/article/{{ name.user_articles }}" class="button big">Continue Reading</a></li>
+									</ul>
+									<ul class="stats">
+										<li><a class="icon fa-heart">{{ name.user_articles.article_likes }}</a></li>
+									</ul>
+								</footer>
+							</article>
+							{% endfor %}
+							{% endfor %}
+
+						<!-- Pagination -->
+							<ul class="actions pagination">
+								<li><a href="{% url "main-page" %}?data={{data}}&page=prev" class="button big previous">Previous Page</a></li>
+								<li><a href="{% url "main-page" %}?data={{data}}&page=next" class="button big next">Next Page</a></li>
+							</ul>
+
+					</div>
+
+				<!-- Sidebar -->
+					<section id="sidebar">
+
+						<!-- Intro -->
+							<section id="intro">
+								<a href="/" class="logo"><img src="{% static 'images/logo.jpg' %}" alt="" /></a>
+								<header>
+									<h2>Where I was</h2>
+									<p>Share your travel experience with us</p>
+								</header>
+							</section>
+						{% for i in mini_posts %}
+						{% for post in i %}
+						<!-- Mini Posts -->
+							<section>
+								<div class="mini-posts">
+
+									<!-- Mini Post -->
+										<article class="mini-post">
+											<header>
+												<h3><a href="countries/article/{{ post.user_articles }}">{{ post.user_articles.article_title }}</a></h3>
+												<time class="published">{{ post.user_articles.article_date }}</time>
+												<a href="{% url "user-profile-page" %}?user_id={{ post.id }}" class="author"><img src="{{ post.avatar.url }}" alt="" /></a>
+											</header>
+											<a class="image" href="countries/article/{{ post.user_articles }}"><img src="{{ post.user_articles.article_pict.url }}" alt="" /></a>
+										</article>
+								</div>
+							</section>
+						{% endfor %}
+<!-- Posts List -->		{% endfor %}
+
+						<!-- Footer -->
+							<section id="footer">
+								<ul class="icons">
+									<li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>
+									<li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+								<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+							</section>
+					</section>
+{% endblock content %}

@@ -14,12 +14,10 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from whereiwas import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    url(r'^$', views.start_page),
+    url(r'^', include('countries.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    # url(r'^(.*.html)', views.open_page),
-    url(r'^countries/', include('countries.urls')),
-    url(r'^about$', views.about_page),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
